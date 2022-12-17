@@ -1,0 +1,54 @@
+<!--Store this code in 'update.html' file inside the 'templates' folder-->
+<html lang="en">
+	<head>
+		<title>update</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<style> 
+			input {
+				width: 250px;
+			}
+		</style>
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>Side Bar</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display Your Profile</a></li>
+					<li><a href="{{url_for('displayBooks')}}">Display Books</a></li>
+					<li><a href="{{url_for('searchBooks')}}">Search for Books</a></li>
+					<li><a href="{{url_for('rateBooks')}}">Rate our Books</a></li>
+					<li><a href="{{url_for('viewRatings')}}">View the Ratings of our Books</a></li>
+					<li><a href="{{url_for('viewAuthors')}}">Display Authors</a></li>
+					<li><a href="{{url_for('searchAuthors')}}">Search for Authors</a></li>
+					<li><a href="{{url_for('viewPublishers')}}">Display Publishers</a></li>
+					<li><a href="{{url_for('searchPublishers')}}">Search for Publishers</a></li>
+					<li><a href="{{url_for('viewPublishes')}}">See Which Publishers Publish Which Books</a></li>
+					<li><a href="{{url_for('searchPublishes')}}">Search for the Specific Publishers of Specific Books</a></li>
+					<li class="active"><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('deleteAccount')}}">Delete Account</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are on the Update Page!! </h2>					
+				</div></br></br>
+				<div class="contentbar">
+				<h1>Fill Your Details to Update</h1></br>
+			<form action="{{ url_for('update') }}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div>
+					<input type="text" name="username" placeholder="Enter Your Username" class="textbox" id="username" required></br></br>
+					<input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required></br></br>
+					<input type="text" name="favoriteBookTitle" placeholder="Enter your favorite book here" class="textbox" id="favoriteBookTitle"></br></br>
+					<input type="text" name="favoriteBookAuthor" placeholder="Enter the author of your favorite book" class="textbox" id="favoriteBookAuthor"></br></br>
+					<input type="text" name="favoriteAuthor" placeholder="Enter the name of your favorite author" class="textbox" id="favoriteAuthor"></br></br>
+					<input type="submit" class="btn" value="Update">
+			</form>					
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

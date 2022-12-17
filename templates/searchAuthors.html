@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<title>Search for Authors</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<style> 
+			input {
+				width: 250px;
+			}
+		</style>
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>Side Bar</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display Your Profile</a></li>
+					<li><a href="{{url_for('displayBooks')}}">Display Books</a></li>
+					<li><a href="{{url_for('searchBooks')}}">Search for Books</a></li>
+					<li><a href="{{url_for('rateBooks')}}">Rate our Books</a></li>
+					<li><a href="{{url_for('viewRatings')}}">View the Ratings of our Books</a></li>
+					<li><a href="{{url_for('viewAuthors')}}">Display Authors</a></li>
+					<li class="active"><a href="{{url_for('searchAuthors')}}">Search for Authors</a></li>
+					<li><a href="{{url_for('viewPublishers')}}">Display Publishers</a></li>
+					<li><a href="{{url_for('searchPublishers')}}">Search for Publishers</a></li>
+					<li><a href="{{url_for('viewPublishes')}}">See Which Publishers Publish Which Books</a></li>
+					<li><a href="{{url_for('searchPublishes')}}">Search for the Specific Publishers of Specific Books</a></li>
+					<li><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('deleteAccount')}}">Delete Account</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Search for specific authors</h2>					
+				</div></br></br>
+				<div class="contentbar">
+				<form action="{{ url_for('searchAuthors') }}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div>
+					<input type="text" name="aN" placeholder="Enter the author's name" class="textbox" id="aN"> 
+						 <label for="cars">Should this be greater than, equal to, or less than?</label>
+							<select id="aND" name="aND">
+								<option value=""></option>
+							  <option value=">">greater than</option>
+							  <option value=">=">greater than or equal to</option>
+							  <option value="=">equal to</option>
+							  <option value="<">less than<</option>
+							  <option value="<=">less than or equal to</option>
+							</select> 
+					</br></br>
+					<input type="text" name="aB" placeholder="Enter the author's year of birth" class="textbox" id="aB">
+					<label for="cars">Should this be greater than, equal to, or less than?</label>
+							<select id="aBD" name="aBD">
+							  <option value=""></option>
+							  <option value=">">greater than</option>
+							  <option value=">=">greater than or equal to</option>
+							  <option value="=">equal to</option>
+							  <option value="<">less than<</option>
+							  <option value="<=">less than or equal to</option>
+							</select> 
+					</br></br>
+					<input type="text" name="aD" placeholder="Enter the author's year of death" class="textbox" id="aD">
+					<label for="cars">Should this be greater than, equal to, or less than?</label>
+							<select id="aDD" name="aDD">
+							  <option value=""></option>
+							  <option value=">">greater than</option>
+							  <option value=">=">greater than or equal to</option>
+							  <option value="=">equal to</option>
+							  <option value="<">less than<</option>
+							  <option value="<=">less than or equal to</option>
+							</select>
+					</br></br>
+					<input type="submit" class="btn" value="Search">
+			</form>
+			<table> 
+					<thead> 
+					<tr> 
+						<th>Author Name</th> 
+						<th>Year of Birth</th> 
+						<th>Year of Death</th> 
+					</tr> 
+					</thead> 
+					<tbody> 
+						{% for row in value %}  
+							<tr> 
+								<td>{{row[0]}}</td> 
+								<td>{{row[1]}}</td> 
+								<td>{{row[2]}}</td> 
+							</tr> 
+						{% endfor %} 
+					</tbody> 
+				</table> 
+			</div>
+		</div>
+	</body>
+</html>
