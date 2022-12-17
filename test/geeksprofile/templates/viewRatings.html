@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Book Ratings</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<style> 
+			input {
+				width: 250px;
+			}
+		</style>
+	<title>View Ratings</title>
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>Side Bar</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display Your Profile</a></li>
+					<li><a href="{{url_for('displayBooks')}}">Display Books</a></li>
+					<li><a href="{{url_for('searchBooks')}}">Search for Books</a></li>
+					<li><a href="{{url_for('rateBooks')}}">Rate our Books</a></li>
+					<li class="active"><a href="{{url_for('viewRatings')}}">View the Ratings of our Books</a></li>
+					<li><a href="{{url_for('viewAuthors')}}">Display Authors</a></li>
+					<li><a href="{{url_for('searchAuthors')}}">Search for Authors</a></li>
+					<li><a href="{{url_for('viewPublishers')}}">Display Publishers</a></li>
+					<li><a href="{{url_for('searchPublishers')}}">Search for Publishers</a></li>
+					<li><a href="{{url_for('viewPublishes')}}">See Which Publishers Publish Which Books</a></li>
+					<li><a href="{{url_for('searchPublishes')}}">Search for the Specific Publishers of Specific Books</a></li>
+					<li><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('deleteAccount')}}">Delete Account</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Check out our book ratings</h2>					
+				</div></br></br>
+				<div class="contentbar">
+				<table> 
+					<thead> 
+					<tr> 
+						<th>Book Author</th> 
+						<th>Book Title</th> 
+						<th>Average Rating of the Book</th> 
+					</tr> 
+					</thead> 
+					<tbody> 
+						{% for row in value %}  
+							<tr> 
+								<td>{{row[0]}}</td> 
+								<td>{{row[1]}}</td> 
+								<td>{{row[2]}}</td> 
+							</tr> 
+						{% endfor %} 
+					</tbody> 
+				</table> 
+			</div>
+		</div>
+	</body>
+</html>

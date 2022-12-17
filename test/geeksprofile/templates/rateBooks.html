@@ -1,0 +1,68 @@
+<!--Store this code in 'display.html' file inside the 'templates' folder-->
+
+<html lang="en">
+	<head>
+		<title>Rate Our Books</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<style> 
+			input {
+				width: 250px;
+			}
+		</style>
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>Side Bar</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display Your Profile</a></li>
+					<li><a href="{{url_for('displayBooks')}}">Display Books</a></li>
+					<li><a href="{{url_for('searchBooks')}}">Search for Books</a></li>
+					<li class="active"><a href="{{url_for('rateBooks')}}">Rate our Books</a></li>
+					<li><a href="{{url_for('viewRatings')}}">View the Ratings of our Books</a></li>
+					<li><a href="{{url_for('viewAuthors')}}">Display Authors</a></li>
+					<li><a href="{{url_for('searchAuthors')}}">Search for Authors</a></li>
+					<li><a href="{{url_for('viewPublishers')}}">Display Publishers</a></li>
+					<li><a href="{{url_for('searchPublishers')}}">Search for Publishers</a></li>
+					<li><a href="{{url_for('viewPublishes')}}">See Which Publishers Publish Which Books</a></li>
+					<li><a href="{{url_for('searchPublishes')}}">Search for the Specific Publishers of Specific Books</a></li>
+					<li><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('deleteAccount')}}">Delete Account</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Rate our Books </h2>					
+				</div> </br>
+				<div class="content" align="center">
+				<form action="{{ url_for('rateBooks')}}" method="post" autocomplete="off">
+				<div class="topbar">
+					<h2>Ratings </h2>					
+				</div></br></br>
+				<div class="contentbar">
+				<!-- <h1>Fill Your Details to Update</h1></br> -->
+			<form action="{{ url_for('rateBooks') }}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div>
+					<input type="text" name="authorName" placeholder="Enter the Author of the Book" class="textbox" id="authorName" required></br></br>
+					<input type="text" name="title" placeholder="Enter the Title of the Book" class="textbox" id="title" required></br></br>
+					<label for="cars">On a scale of 1 to 5, what would you rate this book?</label>
+							<select id="rating" name="rating">
+								<option value=""></option>
+							  <option value="1">1</option>
+							  <option value="2">2</option>
+							  <option value="3">3</option>
+							  <option value="4">4</option>
+							  <option value="5">5</option>
+							</select>
+						</br></br>
+					<input type="submit" class="btn" value="Rate">
+			</form>					
+				</div>
+				
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

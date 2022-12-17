@@ -1,0 +1,48 @@
+<!--Store this code in 'register.html' file inside the 'templates' folder-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> register </title>
+		<link rel="stylesheet" href="style.css">	
+		<style> 
+			input {
+				width: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="two">
+				<h1>Side Bar</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display Your Profile</a></li>
+					<li><a href="{{url_for('displayBooks')}}">Display Books</a></li>
+					<li><a href="{{url_for('searchBooks')}}">Search for Books</a></li>
+					<li><a href="{{url_for('rateBooks')}}">Rate our Books</a></li>
+					<li><a href="{{url_for('viewRatings')}}">View the Ratings of our Books</a></li>
+					<li><a href="{{url_for('viewAuthors')}}">Display Authors</a></li>
+					<li><a href="{{url_for('searchAuthors')}}">Search for Authors</a></li>
+					<li><a href="{{url_for('viewPublishers')}}">Display Publishers</a></li>
+					<li><a href="{{url_for('searchPublishers')}}">Search for Publishers</a></li>
+					<li><a href="{{url_for('viewPublishes')}}">See Which Publishers Publish Which Books</a></li>
+					<li><a href="{{url_for('searchPublishes')}}">Search for the Specific Publishers of Specific Books</a></li>
+					<li><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li class="active"><a href="{{url_for('deleteAccount')}}">Delete Account</a></li> 
+					<!-- LL:The code for this is from here [https://stackoverflow.com/questions/42601478/flask-calling-python-function-on-button-onclick-event] -->
+				</ul>
+			</div>
+		<div class="deletecontent" align="center">
+			<div class="deletetop">
+				<h1>We're sad to see you go</h1>
+			</div></br></br>
+			<div class="deletebottom">
+			<form action="{{ url_for('deleteAccount')}}" method="post" autocomplete="off">
+			<div class="msg">{{ msg }}</div>
+			<!-- <input type="submit" class="btn" value="Delete Account"> -->
+			<button type="button" onclick="window.location.href='{{ url_for('login') }}';">Delete Account</button>
+			</form>
+			</div>
+		</div>
+	</body>
+</html>
